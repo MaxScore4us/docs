@@ -34,6 +34,8 @@
 
 <p>From the patch layout, we can infer that the JavaScript code in our <o>js</o> object should have at least three functions, for <m>bang</m>, <m>sliders</m>, and <m>reverse</m>. It actually has one more, which will become apparent when we use the patch.</p>
 
+<illustration><img src="images/jitterchapter01a.png"/>The <m>read</m> message opens a movie file.</illustration>
+
 <h2>Patch Auto-Generation</h2>
 
 <p>Select the <o>number</o> box attached to the message box containing the <m>sliders $1</m> message. Type in or scroll to the number <m>5</m>, and watch what happens. Change the value in the <o>number</o> box. Try setting it to a large number (like <m>50</m>).</p>
