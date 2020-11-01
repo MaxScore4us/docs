@@ -21,46 +21,43 @@
 <ul>
   <li>The MaxScore object is an API and it has the role of the ‘brain’ of MaxScore. If you would like to get to know the MaxScore object go here: http://…….</li>
   <li>The MaxScore Editor is the visual part of MaxScore or a GUI and it is designed for editing MaxScore scores directly in a Max Window.</li>
-  <li>Milk</li>
 </ul>
 
-<p><b>In this tutorial we will focus on the MaxScore Editor and examine its functions.</b></p>
+<p><b>During this tutorial we will focus on the MaxScore.Editor and examine its functions.</b></p>
 
-<h2>Patcher Scripting with JavaScript</h2>
+<p>Let’s start by opening Max.</p>
 
-<p>When you initially open the tutorial patch, you will see a largely empty patcher with a <o>js</o> object in the lower part of the patcher window. The <o>js</o> object has loaded a JavaScript source file called ‘autosurface.js’, which is located in the same folder as the Tutorial patch.</p>
+<p>First, use the  <!--><o>maxscore.editor<o>--> MaxScore. Editor object.</p>
 
-<p>The <o>js</o> object is configured to send numbers to a MIDI output device (using the <o>makenote</o> and <o>noteout</o> objects). It also has a right outlet sending values to the right inlet of the <o>pack</o> object driving messages to a <o>multislider</o> object. In addition, our <o>js</o> object has a number of objects connected to its inlet. A <o>metro</o> object is connected to our <o>js</o> object, as are two <o>message</o> boxes that will send the messages <m>sliders $1</m> and <m>reverse $1</m>, where <m>$1</m> in each case is the value present in the <o>number</o> box connected to them.</p>
+<p>Access MaxScore Editor by the “Paste from” menu after right-clicking in an empty space of a patch window. Select “maxscore.editor.clipping.maxpat”. You are now ready to start working on a new project.</p>
+<p>Open the Editor window by clicking on the “Open Editor” button inside the bpatcher.</p>
+<p>Take a look at the help file of MaxScore.Editor. Here you can find some additional messages which can be found from the ‘Dictionary’ (go to “Extras” section of the menu, find Max Score and select “Dictionary”)</p>
 
-<p>From the patch layout, we can infer that the JavaScript code in our <o>js</o> object should have at least three functions, for <m>bang</m>, <m>sliders</m>, and <m>reverse</m>. It actually has one more, which will become apparent when we use the patch.</p>
+<p></p>
+<ul>
+  <li>Go to “File” on the left corner of the window and choose “New Score”. By default, the tempo is set to 60 BPM, the time signature is a 4/4 and the clef is a G-clef. To change this, go to ‘Tools’ and chose the clef you want by clicking in the corresponding section. To modify the tonality (add sharps or minors) click on the ‘Key Signature’ section on the right of the ‘clef’ section.</li>
+  <li>If you need to change the time signature, click on the ‘Meter’ button right bellow the clef box and type the numbers you wish in the window that appears. Use a gap between the two numbers (e.g for 3/4 type 3 4). Use the same procedure for adjusting the tempo by using the button right next to the ‘Meter’ button.</li>
+  <li>In order to add notes double click or ctrl-click (Mac) or option-click (Windows) on the pentagram. If you want to transpose notes use cmd-drag (Mac) or ctrl-drag (Windows).</li>
+  <li>If you want to add rest notes, create a new note and then choose from the tools first the note value and then the rest symbol (3d symbol on the first row).</li>
+  <li>To add dynamics or articulation, select a note and then chose from the Tools bar the corresponding symbols. e.g for dynamics check the 5th column.</li>
+  <li>If you wish to add a crescendo or decrescendo to your score, select the passage or notes and click the Crescendo or Decrescendo symbol from the Tools.</li>
+  <li>If you want to add tuplets, select the section or notes and then choose the corresponding symbols from the Tools bar (5th and 6th column, ‘3’, ‘5’, ‘7’, ‘9’, etc.)</li>
+  <li>To add repeats or barlines, select the measure and then click on the corresponding symbols at the bottom of the Tools bar.</li>
+</ul>
+<illustration><img src="images/1st_example.png"/></illustration>
 
-<illustration><img src="images/jitterchapter01a.png"/>The <m>read</m> message opens a movie file.</illustration>
 
-<h2>Patch Auto-Generation</h2>
+<p>You can always use the Shortcuts and work fast and efficiently. Go to ‘Edit’ on the left corner of the window and choose ‘Shortcuts’. A window with all the different shortcuts will then pop up.</p>
 
-<p>Select the <o>number</o> box attached to the message box containing the <m>sliders $1</m> message. Type in or scroll to the number <m>5</m>, and watch what happens. Change the value in the <o>number</o> box. Try setting it to a large number (like <m>50</m>).</p>
+<p>Navigate yourself through the score at the “Navigation” part at the bottom of the window. Type directly the number of the page you wish to display or use the arrows to move around the measures or the pages.</p>
 
-<p>Set it to <m>0</m>, and see what happens.</p>
+<p>Zoom in or out the score by changing the attribute at the corresponding “Zoom” option.</p>
 
-<p>In response to our <m>sliders $</m>1 message, our <o>js</o> object dynamically <i>creates</i> Max objects and connections through <i>scripting</i>. It creates pairs of <o>ctlin</o> and <o>slider</o> objects to match the number of sliders you request through the message to the <o>js</o> object. Furthermore, it creates a <o>funnel</o> object with the appropriate number of inlets for the <o>slider</o> objects and makes the appropriate connections between them. The <o>funnel</o> object is then connected to our <o>js</o> object, allowing the values generated by the sliders to be used by our JavaScript code as well.</p>
-
-<p>As you create sliders, note that the <o>ctlin</o> objects are automatically numbered to listen to incrementing MIDI controller numbers. As a result, a MIDI control surface that sends MIDI continuous control values on multiple controller numbers will send values to independent <o>slider</o> objects. Also, note than when you decrement the number of sliders, the excess objects will disappear (actually, everything disappears and is recreated again). If you set the number of sliders to <m>0</m>, all the script-created objects (including the <o>funnel</o>) will be deleted from the patch.</p>
-
-<p>Set the number of sliders to something modest, such as <m>5</m>. Change the values in the <o>slider</o> objects, either by clicking on them or by using a MIDI controller input. Turn on the <o>metro</o> object by clicking the <o>toggle</o> attached to it. The values in the <o>slider</o> objects should come out of the <o>js</o> object in turn, creating a sequence of MIDI notes.  Double-click the <o>noteout</o> object to select a valid MIDI synthesizer, and you should hear them.</p>
-
-<p>The <o>multislider</o> object to the right of the patch will give you a running display of the current note out of our sequencer, set at its appropriate position in the sequence.</p>
-
-<p>Click the <o>toggle</o> attached to the <o>message</o> box containing the message <m>reverse $1</m>. Note that the order in which the <o>slider</o> values are sequenced is now backwards. Our <o>multislider</o> display runs backwards as well.</p>
-
-<p>In brief, our <o>js</o> object dynamically creates a scalable MIDI control surface (with <o>ctlin</o> and <o>slider</o> objects), and uses those objects’ values to create a simple MIDI <i>step sequencer</i>. The number of sliders created by our JavaScript code determines the length of the sequence.</p>
-
-<p>Turn off both <o>toggle</o> objects, stopping the sequence and putting the sequencer transport back into ‘forward’ mode. Let’s look at the code for our <o>js</o> object.</p>
-
-<h2>The Global Block: Arrays and Maxobjs</h2>
+<!-->
 
 <seealsolist>
 <seealso name="js">Max JavaScript object</seealso>
 <seealso name="jsintro" type="vignette" module="js" >javascriptinmax</seealso>
-</seealsolist>
+</seealsolist> <-->
 
 </chapter>
