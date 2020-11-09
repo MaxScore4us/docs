@@ -31,17 +31,19 @@
 <h2>The MaxScore Editor Window</h2>
 
 <ul>
-  <li>Menu bar</li>
-  <li>Panel on the right, tabs</li>
-  <li>Score manager</li>
-  <li>Staff view</li>
-  <li>Preferences</li>
+  <li>Welcome to the Max Editor window! At the top you will see the <b>Menu Bar</b> in dark gray, where you can access various functions.</li>
+  <li>Look at the <b>Control Panel</b> on the right. There are four tabs, <b>Tools</b>, <b>Pitch Utility</b>, <b>Scorpions</b> and <b>Picster</b>. In this tutorial we will look at functions in the first two. We will give further introductions to the others in the later tutorials.</li>
+  <li>Now click on File>New Score from the top Menu Bar. <illustration><img src="images/editor-01-basics/editor-01-basics-2.png"/></illustration></li>
+  <li>In the main canvas, you will see the <b>Score Manager</b>, where you will create and edit your score. You can always access this page by pressing Shift+1.</li>
+  <li>Press Shift+2 to go to the <b>Staff View</b>. Here you can customize your staves with different attributes.</li>
+  <li>Press Shift+3 for the <b>Preferences</b>, where you can access the settings for the whole score. Press Shift+1 to go back to the <b>Score Manager</b></li>
 </ul>
 
 <h2>Hello World</h2>
 
 <ul>
-  <li>Go to “File” on the left corner of the window and choose “New Score”. By default, the tempo is set to 60 BPM, the time signature to a 4/4 and the clef to a treble G-clef. To change this, go to the ‘Tools’ panel on the right and choose the settings you want by clicking the corresponding sections.<illustration><img src="images/editor-01-basics/editor-01-basics-2.png"/></illustration><illustration><img src="images/editor-01-basics/editor-01-basics-3.png"/></illustration></li>
+  Now let's create our first score!
+  <li>By default, the tempo is set to 60 BPM, the time signature to a 4/4 and the clef to a treble G-clef. To change this, go to the ‘Tools’ panel on the right and choose the settings you want by clicking the corresponding sections.<illustration><img src="images/editor-01-basics/editor-01-basics-2.png"/></illustration><illustration><img src="images/editor-01-basics/editor-01-basics-3.png"/></illustration></li>
   <li>Click on the score and add measures. Blue indicates selected.</li>
   <li>If you need to change the time signature, click on the ‘Meter’ button right bellow the clef box and type the numbers you wish in the window that appears. Use a gap between the two numbers (e.g for 3/4 type 3 4). Use the same procedure for adjusting the tempo by using the button right next to the ‘Meter’ button.<illustration><img src="images/editor-01-basics/editor-01-basics-4.png"/></illustration></li>
   <li>Let's add the first note. In order to add notes, double click or ctrl-click (Mac) or option-click (Windows) on a blank space on the designated measure. Tadaah and your first note is there. It is now blue which means it is selected. If you want to transpose notes, you can either cmd-drag (Mac) or ctrl-drag (Windows), or use the keyboard shortcuts u, j, i, k, o, l for respective transpositions. You can always access the list of shortcuts from the menu: "Edit>Shortcuts".<illustration><img src="images/editor-01-basics/editor-01-basics-5.png"/></illustration></li>
